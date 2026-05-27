@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎂 Happy Birthday Anokhi! ✨ A Magical Birthday World</title>
+  <meta name="description" content="A magical, cinematic birthday celebration made with love for the sweetest little sister, Anokhi. Enter a world of candies, stars, and happiness!" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet" />
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div class="scroll-progress" id="scrollProgress" style="width:0%"></div>
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <div class="loading-screen" id="loadingScreen">
+    <!-- Animated rings -->
+    <div class="loading-ring"></div>
+    <div class="loading-ring"></div>
+
+    <!-- Loading stars -->
+    <span class="loading-star" style="top:10%;left:15%">⭐</span>
+    <span class="loading-star" style="top:20%;left:80%;animation-delay:0.5s">✨</span>
+    <span class="loading-star" style="top:70%;left:10%;animation-delay:1s">🌟</span>
+    <span class="loading-star" style="top:80%;left:85%;animation-delay:0.3s">⭐</span>
+    <span class="loading-star" style="top:40%;left:5%;animation-delay:0.8s">✨</span>
+    <span class="loading-star" style="top:50%;left:90%;animation-delay:1.2s">🌟</span>
+    <span class="loading-star" style="top:15%;left:50%;animation-delay:0.6s">⭐</span>
+    <span class="loading-star" style="top:85%;left:45%;animation-delay:0.9s">✨</span>
+    <span class="loading-star" style="top:35%;left:70%;animation-delay:0.2s">💖</span>
+    <span class="loading-star" style="top:60%;left:25%;animation-delay:1.4s">🎀</span>
+
+    <img src="images/unicorn_loading.png" alt="Magic Unicorn" class="unicorn-img" />
+    <p class="loading-text" id="loadingText"></p>
+    <div class="loading-dots">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- ============ PARTICLES ============ -->
+  <div id="tsparticles"></div>
+
+
+
+  <!-- ============ MUSIC PLAYER ============ -->
+  <button class="music-player" id="musicPlayer" aria-label="Toggle Music">🎵</button>
+
+  <!-- ============ PHOTO MODAL ============ -->
+  <div class="photo-modal" id="photoModal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <img src="" alt="Memory" id="modalImg" />
+  </div>
+
+  <!-- ============ GLOW OVERLAY ============ -->
+  <div class="glow-overlay" id="glowOverlay"></div>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section class="hero-section" id="hero">
+    <!-- Aurora Borealis Glow Backdrop -->
+    <div class="aurora-glow-backdrop"></div>
+
+    <!-- Animated gradient mesh background -->
+    <div class="hero-gradient-mesh">
+      <div class="gradient-blob"></div>
+      <div class="gradient-blob"></div>
+      <div class="gradient-blob"></div>
+      <div class="gradient-blob"></div>
+    </div>
+
+    <!-- Grid pattern overlay -->
+    <div class="hero-grid-pattern"></div>
+
+    <!-- Dramatic Spotlight -->
+    <div class="hero-spotlight"></div>
+
+    <!-- Shooting Stars -->
+    <div class="shooting-stars-container">
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+    </div>
+
+    <!-- Rainbow arc -->
+    <div class="rainbow"></div>
+
+    <!-- Clouds -->
+    <div class="hero-clouds">
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+      <div class="cloud cloud-3"></div>
+    </div>
+
+    <!-- Balloons - 8 now -->
+    <div class="hero-balloons">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+    </div>
+
+    <!-- Floating candies -->
+    <span class="floating-candy" style="top:12%;left:8%;animation-delay:0s">🍭</span>
+    <span class="floating-candy" style="top:25%;right:12%;animation-delay:2s">🍬</span>
+    <span class="floating-candy" style="top:60%;left:5%;animation-delay:4s">🧁</span>
+    <span class="floating-candy" style="top:75%;right:8%;animation-delay:1s">🍩</span>
+    <span class="floating-candy" style="top:40%;left:92%;animation-delay:3s">🍫</span>
+    <span class="floating-candy" style="top:85%;left:15%;animation-delay:5s">🍪</span>
+    <span class="floating-candy" style="top:18%;left:45%;animation-delay:6s">🎀</span>
+    <span class="floating-candy" style="top:55%;right:3%;animation-delay:7s">🌸</span>
+
+    <!-- Emoji rain (generated by JS) -->
+    <div class="emoji-rain" id="emojiRain"></div>
+
+    <!-- Stars -->
+    <div class="hero-stars">
+      <span class="hero-star" style="top:5%;left:10%">⭐</span>
+      <span class="hero-star" style="top:12%;left:75%;animation-delay:0.7s">✨</span>
+      <span class="hero-star" style="top:22%;left:90%;animation-delay:1.3s">🌟</span>
+      <span class="hero-star" style="top:62%;left:6%;animation-delay:0.4s">⭐</span>
+      <span class="hero-star" style="top:72%;left:93%;animation-delay:1s">✨</span>
+      <span class="hero-star" style="top:42%;left:96%;animation-delay:0.2s">🌟</span>
+      <span class="hero-star" style="top:88%;left:50%;animation-delay:0.9s">⭐</span>
+      <span class="hero-star" style="top:35%;left:3%;animation-delay:1.5s">✨</span>
+      <span class="hero-star" style="top:8%;left:55%;animation-delay:1.8s">💫</span>
+      <span class="hero-star" style="top:78%;left:30%;animation-delay:0.6s">🌟</span>
+    </div>
+
+    <!-- Hero character with pulsating rings, crown, spotlight & orbit elements -->
+    <div class="hero-character">
+      <!-- Floating Princess Crown -->
+      <div class="hero-crown">👑</div>
+
+      <div class="hero-rings">
+        <div class="hero-ring"></div>
+        <div class="hero-ring"></div>
+        <div class="hero-ring"></div>
+      </div>
+
+      <!-- Orbiting Magical Items (3D path) -->
+      <div class="orbiting-container">
+        <div class="orbiting-element orb-star" style="animation-delay: 0s">⭐</div>
+        <div class="orbiting-element orb-heart" style="animation-delay: -2s">💖</div>
+        <div class="orbiting-element orb-candy" style="animation-delay: -4s">🍭</div>
+        <div class="orbiting-element orb-sparkle" style="animation-delay: -6s">✨</div>
+      </div>
+
+      <img src="images/princess_girl.png" alt="Birthday Princess Anokhi" />
+    </div>
+
+    <!-- Hero text -->
+    <h1 class="hero-title" id="heroTitle"></h1>
+    <p class="hero-subtitle" id="heroSubtitle"></p>
+
+    <!-- Unlock Button -->
+    <button class="unlock-btn" id="unlockBtn" onclick="unlockHappiness()">
+      Unlock Happiness ✨
+      <span class="btn-sparkle" style="top:10%;left:10%"></span>
+      <span class="btn-sparkle" style="top:80%;left:85%;animation-delay:0.5s"></span>
+      <span class="btn-sparkle" style="top:5%;left:60%;animation-delay:1s"></span>
+      <span class="btn-sparkle" style="top:50%;left:5%;animation-delay:1.5s"></span>
+    </button>
+  </section>
+
+  <!-- ============ WAVE DIVIDER ============ -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#1e1145" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,40 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============ MAGIC JOURNEY ============ -->
+  <section class="magic-journey" id="journey">
+    <!-- Vertical journey line -->
+    <div class="journey-line"></div>
+
+    <!-- Segment A: Sunshine -->
+    <div class="journey-segment" id="journeyA">
+      <div class="journey-dot" style="top:20%"></div>
+      <span class="journey-balloon" style="top:10%;left:5%;animation-delay:0s">🎈</span>
+      <span class="journey-balloon" style="top:20%;right:8%;animation-delay:1s">🎈</span>
+      <span class="journey-balloon" style="top:60%;left:3%;animation-delay:2s">🌟</span>
+      <span class="journey-balloon" style="top:70%;right:5%;animation-delay:0.5s">⭐</span>
+      <span class="journey-balloon" style="top:40%;left:92%;animation-delay:1.5s">💫</span>
+
+      <img src="images/teddy_birthday.png" alt="Sunshine Teddy" class="journey-img fade-in" />
+      <p class="journey-text fade-in">You are our little sunshine ☀️</p>
+    </div>
+
+    <!-- Segment B: Gift Boxes -->
+    <div class="journey-segment" id="journeyB">
+      <div class="journey-dot" style="top:20%"></div>
+      <span class="journey-balloon" style="top:15%;left:8%;animation-delay:0.5s">🎁</span>
+      <span class="journey-balloon" style="top:30%;right:6%;animation-delay:1.5s">💝</span>
+      <span class="journey-balloon" style="top:65%;left:5%;animation-delay:0.8s">✨</span>
+      <span class="journey-balloon" style="top:80%;right:10%;animation-delay:2s">🌸</span>
+
+      <img src="images/gift_boxes.png" alt="Magic Gifts" class="journey-img fade-in" />
+      <p class="journey-text fade-in">Every smile of yours makes the world brighter 💝</p>
+    </div>
+
+    <!-- Segment C: Rainbow -->
+    <div class="journey-segment" id="journeyC">
+      <div class="journey-dot" style="top:20%"></div>
+      <span class="journey-balloon" style="top:10%;left:10%;animation-delay:0.3s">🌈</span>
+      <span class="journey-balloon" style="top:25%;right:10%;animation-delay:1.2s">☁️</span>
+      <span class="journey-balloon" style="top:55%;left:6%;animation-delay:0.7s">✨</span>
+      <span class="journey-balloon" style="top:75%;right:8%;animation-delay:1.8s">🌟</span>
+      <span class="journey-balloon" style="top:45%;left:93%;animation-delay:2.5s">🦋</span>
+
+      <img src="images/princess_girl.png" alt="Rainbow Princess" class="journey-img fade-in" />
+      <p class="journey-text fade-in">Today is all about fun, happiness, and magic 🌈</p>
+    </div>
+  </section>
+
+  <!-- ============ WAVE DIVIDER ============ -->
+  <div class="wave-divider flip">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#1a0a2e" d="M0,40 C360,0 720,80 1080,40 C1260,20 1380,40 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============ MEMORY GALLERY ============ -->
+  <section class="memory-gallery" id="gallery">
+    <!-- Decorations -->
+    <span class="gallery-deco" style="top:5%;left:5%">💖</span>
+    <span class="gallery-deco" style="top:10%;right:8%;animation-delay:1s">⭐</span>
+    <span class="gallery-deco" style="top:30%;left:3%;animation-delay:0.5s">🎀</span>
+    <span class="gallery-deco" style="top:50%;right:4%;animation-delay:1.5s">🍬</span>
+    <span class="gallery-deco" style="bottom:10%;left:8%;animation-delay:0.8s">💖</span>
+    <span class="gallery-deco" style="bottom:5%;right:6%;animation-delay:2s">🌟</span>
+    <span class="gallery-deco" style="top:70%;left:6%;animation-delay:2.5s">🦋</span>
+    <span class="gallery-deco" style="top:40%;right:2%;animation-delay:3s">🌸</span>
+
+    <h2 class="gallery-title fade-in">✨ Magical Moments ✨</h2>
+
+    <div class="gallery-grid">
+      <div class="polaroid" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15" onclick="openModal(this)">
+        <div class="tape"></div>
+        <img src="images/memory_playground.png" alt="Adventure time" />
+        <span class="caption">Adventures in wonderland 🌸</span>
+      </div>
+
+      <div class="polaroid" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15" onclick="openModal(this)">
+        <div class="tape"></div>
+        <img src="images/memory_reading.png" alt="Story time" />
+        <span class="caption">Lost in fairy tales 📖</span>
+      </div>
+
+      <div class="polaroid" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15" onclick="openModal(this)">
+        <div class="tape"></div>
+        <img src="images/memory_dancing.png" alt="Dancing in rain" />
+        <span class="caption">Dancing with raindrops 🌧️</span>
+      </div>
+
+      <div class="polaroid" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15" onclick="openModal(this)">
+        <div class="tape"></div>
+        <img src="images/memory_stars.png" alt="Stargazing" />
+        <span class="caption">Counting the stars 🌙</span>
+      </div>
+
+      <div class="polaroid" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15" onclick="openModal(this)">
+        <div class="tape"></div>
+        <img src="images/memory_painting.png" alt="Little artist" />
+        <span class="caption">Our little artist 🎨</span>
+      </div>
+
+      <div class="polaroid" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15" onclick="openModal(this)">
+        <div class="tape"></div>
+        <img src="images/memory_butterfly.png" alt="Butterfly garden" />
+        <span class="caption">Chasing butterflies 🦋</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WAVE DIVIDER ============ -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#0f0720" d="M0,20 C240,60 480,0 720,40 C960,80 1200,20 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============ MINI GAME ============ -->
+  <section class="game-section" id="game">
+    <h2 class="game-title fade-in">🍭 Catch The Candies 🍭</h2>
+    <p class="game-subtitle fade-in">Catch as many candies as you can, Anokhi!</p>
+
+    <div class="game-container" id="gameContainer">
+      <div class="game-hud">
+        <span id="gameScore">🍬 Score: 0</span>
+        <span id="gameTimer">⏰ Time: 30s</span>
+      </div>
+      <div class="game-basket" id="gameBasket">🧺</div>
+
+      <div class="game-over-popup" id="gameOverPopup">
+        <h2 id="gameOverTitle">🎉 Amazing! 🎉</h2>
+        <p id="gameOverScore"></p>
+        <button class="game-restart-btn" onclick="startGame()">Play Again 🍭</button>
+      </div>
+    </div>
+
+    <button class="game-start-btn" id="gameStartBtn" onclick="startGame()">Start Game 🎮</button>
+  </section>
+
+  <!-- ============ WAVE DIVIDER ============ -->
+  <div class="wave-divider flip">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#1a0a2e" d="M0,40 C480,0 960,80 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============ BIRTHDAY CAKE ============ -->
+  <section class="cake-section" id="cake">
+    <h2 class="cake-title fade-in">🎂 Time To Make A Wish! 🎂</h2>
+
+    <div class="cake-wrapper fade-in">
+      <img src="images/birthday_cake.png" alt="Birthday Cake" class="cake-img" />
+
+      <div class="candles-container" id="candlesContainer">
+        <div class="candle"><div class="flame" id="flame1"></div></div>
+        <div class="candle"><div class="flame" id="flame2"></div></div>
+        <div class="candle"><div class="flame" id="flame3"></div></div>
+        <div class="candle"><div class="flame" id="flame4"></div></div>
+        <div class="candle"><div class="flame" id="flame5"></div></div>
+      </div>
+
+      <span class="cake-sparkle" style="top:-10%;left:-8%;animation-delay:0s">✨</span>
+      <span class="cake-sparkle" style="top:-5%;right:-8%;animation-delay:0.5s">🌟</span>
+      <span class="cake-sparkle" style="top:20%;left:-12%;animation-delay:1s">✨</span>
+      <span class="cake-sparkle" style="top:30%;right:-10%;animation-delay:1.5s">🌟</span>
+      <span class="cake-sparkle" style="bottom:10%;left:-8%;animation-delay:0.8s">✨</span>
+      <span class="cake-sparkle" style="bottom:5%;right:-5%;animation-delay:1.2s">🌟</span>
+      <span class="cake-sparkle" style="top:50%;left:-6%;animation-delay:2s">💖</span>
+      <span class="cake-sparkle" style="top:45%;right:-6%;animation-delay:0.3s">💫</span>
+    </div>
+
+    <button class="blow-btn" id="blowBtn" onclick="blowCandles()">Blow The Candles 🕯️</button>
+    <p class="wish-text" id="wishText">Make A Wish Anokhi 💖</p>
+  </section>
+
+  <!-- ============ FINAL SURPRISE ============ -->
+  <section class="final-section" id="finale">
+    <img src="images/magical_night_sky.png" alt="Magical Night" class="final-bg-img" />
+
+    <!-- Floating lanterns -->
+    <div class="lantern" style="left:8%;animation-delay:0s"></div>
+    <div class="lantern" style="left:20%;animation-delay:3s"></div>
+    <div class="lantern" style="left:35%;animation-delay:6s"></div>
+    <div class="lantern" style="left:48%;animation-delay:2s"></div>
+    <div class="lantern" style="left:62%;animation-delay:5s"></div>
+    <div class="lantern" style="left:75%;animation-delay:8s"></div>
+    <div class="lantern" style="left:88%;animation-delay:10s"></div>
+    <div class="lantern" style="left:15%;animation-delay:12s"></div>
+    <div class="lantern" style="left:55%;animation-delay:14s"></div>
+    <div class="lantern" style="left:42%;animation-delay:9s"></div>
+
+    <!-- Floating hearts -->
+    <span class="float-heart" style="left:5%;animation-delay:0s">💕</span>
+    <span class="float-heart" style="left:15%;animation-delay:2s">💖</span>
+    <span class="float-heart" style="left:28%;animation-delay:4s">💗</span>
+    <span class="float-heart" style="left:40%;animation-delay:1s">💕</span>
+    <span class="float-heart" style="left:55%;animation-delay:3s">💖</span>
+    <span class="float-heart" style="left:68%;animation-delay:5s">💗</span>
+    <span class="float-heart" style="left:80%;animation-delay:6s">💕</span>
+    <span class="float-heart" style="left:92%;animation-delay:7s">💖</span>
+    <span class="float-heart" style="left:35%;animation-delay:8s">💗</span>
+    <span class="float-heart" style="left:72%;animation-delay:2.5s">💕</span>
+
+    <div class="final-content">
+      <h2 class="final-title fade-in" id="finalTitle">We Love You So Much Anokhi 💕</h2>
+      <p class="final-message fade-in" id="finalMessage">
+        May your life always stay colorful, magical, and full of happiness ✨
+      </p>
+      <button class="replay-btn" onclick="replayMagic()">Replay The Magic 🌈</button>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    Made with <span>❤️</span> for the most special sister in the world
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
